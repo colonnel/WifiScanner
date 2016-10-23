@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_current_net"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.gmail.berezin.serg.wifiscanner.CurrentNetActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:text="@string/current_network_info"
+        android:textSize="@dimen/big_text" />
+
+    <!--Network name-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="@string/network_name_ssid_info" />
+
+        <TextView
+            android:id="@+id/tvNameInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            tools:text="name" />
+        <!--HiddenSSID-->
+        <ImageView
+            android:id="@+id/ivHiddenSsid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </LinearLayout>
+    <!--Network MAC-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="@string/mac_info" />
+
+        <TextView
+            android:id="@+id/tvMacInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="MAC" />
+    </LinearLayout>
+    <!--Ip-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="@string/ip_info" />
+
+        <TextView
+            android:id="@+id/tvIpInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="192.168.1.1" />
+    </LinearLayout>
+    <!--LinkSpeed-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="@string/link_speed_info" />
+
+        <TextView
+            android:id="@+id/tvSpeedInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="150 Mbps" />
+    </LinearLayout>
+    <!--Network Frequency-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="@string/frequency_info" />
+
+        <TextView
+            android:id="@+id/tvFrequencyInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="555 Ghz" />
+    </LinearLayout>
+    <!--NetworkRSSI-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="@string/strength_rssi_info" />
+
+        <TextView
+            android:id="@+id/tvRssiInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="555 dBm" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnGetInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/get_network_info" />
+
+</LinearLayout>

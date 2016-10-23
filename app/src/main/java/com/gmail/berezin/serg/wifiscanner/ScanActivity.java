@@ -2,6 +2,7 @@ package com.gmail.berezin.serg.wifiscanner;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ScanActivity extends AppCompatActivity {
     private Element[] nets;
     private WifiManager wifiManager;
     private List<ScanResult> wifiList;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             String item_level = vectorItem[3];
             String ssid = item_essid.split(": ")[1];
             String security = item_capabilities.split(": ")[1];
-            String level = item_level.split(":")[1];
+            String level = item_level.split(": ")[1];
             nets[i] = new Element(ssid, security, level);
         }
 
@@ -107,22 +108,25 @@ public class MainActivity extends AppCompatActivity {
             LayoutInflater inflater = context.getLayoutInflater();
             View item = inflater.inflate(R.layout.items, null);
 
-            TextView tvSsid = (TextView) findViewById(R.id.tvSSID);
+            TextView tvSsid = (TextView) item.findViewById(R.id.tvSSID);
             tvSsid.setText(nets[position].getTitle());
 
-            TextView tvSecurity = (TextView) findViewById(R.id.tvSecurity);
+            TextView tvSecurity = (TextView) item.findViewById(R.id.tvSecurity);
             tvSecurity.setText(nets[position].getSecurity());
 
-            TextView tvStrength = (TextView) findViewById(R.id.tvStrength);
+            TextView tvStrength = (TextView) item.findViewById(R.id.tvStrength);
             String level = nets[position].getLevel();
             try {
                 int i = Integer.parseInt(level);
                 if (i > -50) {
-                    tvStrength.setText("Hi");
+                    tvStrength.setText(R.string.level_hi);
+                    tvStrength.setTextColor(Color.GREEN);
                 } else if (i <= -50 && i > -80) {
-                    tvStrength.setText("Middle");
+                    tvStrength.setText(R.string.level_middle);
+                    tvStrength.setTextColor(Color.YELLOW);
                 } else if (i <= -80) {
-                    tvStrength.setText("Low");
+                    tvStrength.setText(R.string.level_low);
+                    tvStrength.setTextColor(Color.RED);
                 }
             } catch (NumberFormatException e) {
                 Log.d(TAG, e.getMessage());
