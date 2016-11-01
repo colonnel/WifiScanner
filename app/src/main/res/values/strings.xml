@@ -4,7 +4,7 @@
     <string name="level_hi">Hi</string>
     <string name="level_middle">Middle</string>
     <string name="level_low">Low</string>
-    <string name="network_name_ssid_info">Network name(SSID:</string>
+    <string name="network_name_ssid_info">Network name(SSID):</string>
     <string name="mac_info">MAC:</string>
     <string name="link_speed_info">Link speed:</string>
     <string name="frequency_info">Frequency:</string>

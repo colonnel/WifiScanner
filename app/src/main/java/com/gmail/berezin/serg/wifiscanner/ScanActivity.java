@@ -32,9 +32,9 @@ public class ScanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_scan);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +123,7 @@ public class ScanActivity extends AppCompatActivity {
                     tvStrength.setTextColor(Color.GREEN);
                 } else if (i <= -50 && i > -80) {
                     tvStrength.setText(R.string.level_middle);
-                    tvStrength.setTextColor(Color.YELLOW);
+                    tvStrength.setTextColor(Color.MAGENTA);
                 } else if (i <= -80) {
                     tvStrength.setText(R.string.level_low);
                     tvStrength.setTextColor(Color.RED);
