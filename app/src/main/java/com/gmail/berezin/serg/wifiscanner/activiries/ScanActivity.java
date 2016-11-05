@@ -1,4 +1,4 @@
-package com.gmail.berezin.serg.wifiscanner;
+package com.gmail.berezin.serg.wifiscanner.activiries;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,6 +20,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.gmail.berezin.serg.wifiscanner.Element;
+import com.gmail.berezin.serg.wifiscanner.R;
 
 import java.util.List;
 

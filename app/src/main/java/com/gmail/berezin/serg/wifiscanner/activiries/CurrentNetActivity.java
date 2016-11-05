@@ -1,7 +1,6 @@
-package com.gmail.berezin.serg.wifiscanner;
+package com.gmail.berezin.serg.wifiscanner.activiries;
 
 import android.content.Context;
-import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -12,6 +11,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gmail.berezin.serg.wifiscanner.R;
+import com.gmail.berezin.serg.wifiscanner.Utils;
 
 public class CurrentNetActivity extends AppCompatActivity {
     private TextView vSsid;

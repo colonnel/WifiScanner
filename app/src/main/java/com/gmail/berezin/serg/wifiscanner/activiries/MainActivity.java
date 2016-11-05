@@ -1,4 +1,4 @@
-package com.gmail.berezin.serg.wifiscanner;
+package com.gmail.berezin.serg.wifiscanner.activiries;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.gmail.berezin.serg.wifiscanner.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button vButtonChekConnect;

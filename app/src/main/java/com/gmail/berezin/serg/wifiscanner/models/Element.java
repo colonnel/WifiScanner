@@ -1,4 +1,4 @@
-package com.gmail.berezin.serg.wifiscanner;
+package com.gmail.berezin.serg.wifiscanner.models;
 
 
 
