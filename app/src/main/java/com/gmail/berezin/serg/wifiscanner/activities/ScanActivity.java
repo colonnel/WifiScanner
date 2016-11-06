@@ -1,7 +1,8 @@
-package com.gmail.berezin.serg.wifiscanner.activiries;
+package com.gmail.berezin.serg.wifiscanner.activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
@@ -17,11 +18,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.gmail.berezin.serg.wifiscanner.Element;
+import com.gmail.berezin.serg.wifiscanner.models.Element;
 import com.gmail.berezin.serg.wifiscanner.R;
 
 import java.util.List;
@@ -48,6 +50,7 @@ public class ScanActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
 
     @Override
@@ -95,7 +98,18 @@ public class ScanActivity extends AppCompatActivity {
         AdapterElements adapterElements = new AdapterElements(this);
         ListView netList = (ListView) findViewById(R.id.listItem);
         netList.setAdapter(adapterElements);
+        netList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Element net = (Element) parent.getAdapter().getItem(position);
+                Log.d(TAG, "itemClick: position = " + position + ", id = " + id);
+                Intent intent = new Intent(ScanActivity.this, NetInfoActivity.class);
+                intent.putExtra(NetInfoActivity.POS_NO, net);
+                startActivity(intent);
+            }
+        });
     }
+
 
     class AdapterElements extends ArrayAdapter<Object> {
         Activity context;

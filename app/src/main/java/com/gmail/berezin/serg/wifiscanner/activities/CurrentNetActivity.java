@@ -1,4 +1,4 @@
-package com.gmail.berezin.serg.wifiscanner.activiries;
+package com.gmail.berezin.serg.wifiscanner.activities;
 
 import android.content.Context;
 import android.net.wifi.WifiInfo;
@@ -7,7 +7,6 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,13 +34,14 @@ public class CurrentNetActivity extends AppCompatActivity {
         vFrequency = (TextView) findViewById(R.id.tvFrequencyInfo);
         vRssi = (TextView) findViewById(R.id.tvRssiInfo);
         vHiddenSsid = (ImageView) findViewById(R.id.ivHiddenSsid);
-        Button vButtonGetInfo = (Button) findViewById(R.id.btnGetInfo);
-        vButtonGetInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getCurrentNetInfo();
-            }
-        });
+//        Button vButtonGetInfo = (Button) findViewById(R.id.btnGetInfo);
+        getCurrentNetInfo();
+//        vButtonGetInfo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getCurrentNetInfo();
+//            }
+//        });
 
     }
 
@@ -65,20 +65,18 @@ public class CurrentNetActivity extends AppCompatActivity {
                     vHiddenSsid.setImageResource(R.drawable.ic_check_circle_outline_black_24dp);
                 }
                 vMac.setText(macAddress);
-                vSpeed.setText(linkSpeed + " Mbps");
+                vSpeed.setText(Integer.toString(linkSpeed) + " Mbps");
                 vIp.setText(ipString);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     int frequency = currentNetInfo.getFrequency(); //current frequency
                     vFrequency.setVisibility(View.VISIBLE);
-                    vFrequency.setText(frequency + " Mhz");
+                    vFrequency.setText(Integer.toString(frequency) + " Mhz");
                 }
-                vRssi.setText(rssi + " dBm");
+                vRssi.setText(Integer.toString(rssi) + " dBm");
+            } else {
+                Toast.makeText(CurrentNetActivity.this, "Enable WiFi!", Toast.LENGTH_LONG).show();
             }
         }
     }
-    private void checkConnection(WifiManager wifiManager){
-        if (wifiManager.isWifiEnabled()){
-            Toast.makeText(CurrentNetActivity.this, "Enable WiFi!", Toast.LENGTH_SHORT);
-        }
-    }
+
 }

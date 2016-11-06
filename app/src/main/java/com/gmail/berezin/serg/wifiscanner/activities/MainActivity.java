@@ -1,4 +1,4 @@
-package com.gmail.berezin.serg.wifiscanner.activiries;
+package com.gmail.berezin.serg.wifiscanner.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.gmail.berezin.serg.wifiscanner.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button vButtonChekConnect;
+    Button vButtonCheckConnect;
     Button vButtonGetInfo;
     Button vButtonScanNets;
 
@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        vButtonChekConnect = (Button) findViewById(R.id.btnCheckConnect);
+        vButtonCheckConnect = (Button) findViewById(R.id.btnCheckConnect);
         vButtonGetInfo = (Button) findViewById(R.id.btnGetInfoMain);
         vButtonScanNets = (Button) findViewById(R.id.btnScanNets);
-        vButtonChekConnect.setOnClickListener(this);
+        vButtonCheckConnect.setOnClickListener(this);
         vButtonGetInfo.setOnClickListener(this);
         vButtonScanNets.setOnClickListener(this);
     }
@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void checkConnection() {
         WifiManager mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         if (mWifiManager.isWifiEnabled()) {
-            Toast.makeText(this, "WiFi is enable.", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "WiFi is enable", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "WiFi is disable! Pleas enable", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "WiFi is disable! Please enable", Toast.LENGTH_SHORT).show();
         }
     }
 }
