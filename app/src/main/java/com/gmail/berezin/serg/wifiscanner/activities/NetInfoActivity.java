@@ -8,9 +8,6 @@ import android.widget.TextView;
 import com.gmail.berezin.serg.wifiscanner.R;
 import com.gmail.berezin.serg.wifiscanner.models.Element;
 
-/**
- * Created by Admin on 23.10.16.
- */
 
 public class NetInfoActivity extends AppCompatActivity {
     private TextView vNetName;
@@ -31,9 +28,9 @@ public class NetInfoActivity extends AppCompatActivity {
     private void getInfo() {
         Element net = (Element) getIntent().getParcelableExtra(POS_NO);
         if (net != null) {
-            vNetName.setText(net.getTitle());
-            vNetSecurity.setText(net.getSecurity());
-            vNetStrength.setText(net.getLevel());
+            vNetName.setText(getString(R.string.network_name_ssid_info) + net.getTitle());
+            vNetSecurity.setText("Security: " + net.getSecurity());
+            vNetStrength.setText("Strength: " + net.getLevel());
         }
 
     }

@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.gmail.berezin.serg.wifiscanner.MainActivity">
+    tools:context="com.gmail.berezin.serg.wifiscanner.activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,24 +17,33 @@
 
         <Button
             android:id="@+id/btnCheckConnect"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Check WiFi connection"
             android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/btnGetInfoMain"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Get Info"
-            android:textAllCaps="false" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnScanNets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scan nets"
-            android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnGetInfoMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Get Info"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnScanNets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Scan nets"
+                android:textAllCaps="false" />
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

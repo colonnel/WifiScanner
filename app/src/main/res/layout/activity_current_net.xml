@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.gmail.berezin.serg.wifiscanner.CurrentNetActivity">
+    tools:context="com.gmail.berezin.serg.wifiscanner.activities.CurrentNetActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,6 +103,7 @@
             <TextView
                 android:id="@+id/tvSpeedInfo"
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
                 tools:text="150 Mbps" />
         </LinearLayout>
@@ -123,6 +124,8 @@
                 android:id="@+id/tvFrequencyInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
+                android:textAppearance="@android:style/TextAppearance.Widget.Button"
                 tools:text="555 Ghz" />
         </LinearLayout>
         <!--NetworkRSSI-->
@@ -146,11 +149,11 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnGetInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="@string/get_network_info" />
+    <!--<Button-->
+        <!--android:id="@+id/btnGetInfo"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:text="@string/get_network_info" />-->
 
 </FrameLayout>
