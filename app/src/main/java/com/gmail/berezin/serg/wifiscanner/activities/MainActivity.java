@@ -33,15 +33,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btnCheckConnect:
                 checkConnection();
-                return;
+                break;
             case R.id.btnGetInfoMain:
                 Intent intent = new Intent(MainActivity.this, CurrentNetActivity.class);
                 startActivity(intent);
-                return;
+                break;
             case R.id.btnScanNets:
                 Intent intent1 = new Intent(MainActivity.this, ScanActivity.class);
                 startActivity(intent1);
-                return;
+                break;
         }
     }
 
