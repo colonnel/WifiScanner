@@ -18,11 +18,12 @@
 
         <Button
             android:id="@+id/btnCheckConnect"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:background="@drawable/round_button"
-            android:text="Check WiFi connection"
+            android:text="@string/check_wifi_connection"
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
@@ -34,23 +35,25 @@
 
             <Button
                 android:id="@+id/btnGetInfoMain"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
-                android:text="Get Info"
+                android:text="@string/get_info"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/btnScanNets"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
-                android:text="Scan nets"
+                android:text="@string/scan_nets"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
         </LinearLayout>

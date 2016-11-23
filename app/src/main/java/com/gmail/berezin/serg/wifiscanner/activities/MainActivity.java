@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Method checks wifi state
+     */
     private void checkConnection() {
         WifiManager mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         if (mWifiManager.isWifiEnabled()) {

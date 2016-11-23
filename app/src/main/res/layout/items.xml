@@ -12,19 +12,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Network name"
+            android:text="@string/network_name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Security"
+            android:text="@string/security"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Signal strength"
+            android:text="@string/signal_strength"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
@@ -59,13 +59,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             tools:text="Signal strength" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="@drawable/round_button"
-            android:text="Connect"
-            android:textColor="@android:color/white" />
+
     </LinearLayout>
 
 </RelativeLayout>

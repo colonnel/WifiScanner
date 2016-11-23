@@ -1,34 +1,30 @@
 package com.gmail.berezin.serg.wifiscanner.activities;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.net.wifi.ScanResult;
+import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.gmail.berezin.serg.wifiscanner.R;
+import com.gmail.berezin.serg.wifiscanner.adapters.AdapterElements;
 import com.gmail.berezin.serg.wifiscanner.models.Element;
 
 import java.util.List;
 
 public class ScanActivity extends AppCompatActivity {
     private Element[] nets;
-    private WifiManager wifiManager;
-    private List<ScanResult> wifiList;
+    private WifiManager mWifiManager;
+    private List<ScanResult> mWifiList;
+    private AdapterElements mAdapterElements;
     private static final String TAG = "myLog";
 
     @Override
@@ -72,16 +68,19 @@ public class ScanActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method scans networks via wifi
+     */
     private void detectWifi() {
-        this.wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        this.wifiManager.startScan();
-        this.wifiList = this.wifiManager.getScanResults();
+        this.mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        this.mWifiManager.startScan();
+        this.mWifiList = this.mWifiManager.getScanResults();
 
-        Log.d(TAG, wifiList.toString());
+        Log.d(TAG, mWifiList.toString());
 
-        this.nets = new Element[wifiList.size()];
-        for (int i = 0; i < wifiList.size(); i++) {
-            String item = wifiList.get(i).toString();
+        this.nets = new Element[mWifiList.size()];
+        for (int i = 0; i < mWifiList.size(); i++) {
+            String item = mWifiList.get(i).toString();
             String[] vectorItem = item.split(",");
             String item_essid = vectorItem[0];
             String item_capabilities = vectorItem[2];
@@ -92,62 +91,10 @@ public class ScanActivity extends AppCompatActivity {
             nets[i] = new Element(ssid, security, level);
         }
 
-        AdapterElements adapterElements = new AdapterElements(this);
+        mAdapterElements = new AdapterElements(this, nets);
         ListView netList = (ListView) findViewById(R.id.listItem);
-        netList.setAdapter(adapterElements);
-//        netList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Element net = (Element) parent.getAdapter().getItem(position);
-//                Log.d(TAG, "itemClick: position = " + position + ", id = " + id);
-//                Intent intent = new Intent(ScanActivity.this, NetInfoActivity.class);
-//                intent.putExtra(NetInfoActivity.POS_NO, net);
-//                startActivity(intent);
-//            }
-//        });
+        netList.setAdapter(mAdapterElements);
+
     }
 
-
-    class AdapterElements extends ArrayAdapter<Object> {
-        Activity context;
-
-        public AdapterElements(Activity context) {
-            super(context, R.layout.items, nets);
-            this.context = context;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = context.getLayoutInflater();
-            View item = inflater.inflate(R.layout.items, null);
-
-            TextView tvSsid = (TextView) item.findViewById(R.id.tvSSID);
-            tvSsid.setText(nets[position].getTitle());
-
-            TextView tvSecurity = (TextView) item.findViewById(R.id.tvSecurity);
-            tvSecurity.setText(nets[position].getSecurity());
-
-            TextView tvStrength = (TextView) item.findViewById(R.id.tvStrength);
-            String level = nets[position].getLevel();
-            try {
-                int i = Integer.parseInt(level);
-                if (i > -50) {
-                    tvStrength.setText(R.string.level_hi);
-                    tvStrength.setTextColor(Color.GREEN);
-                } else if (i <= -50 && i > -80) {
-                    tvStrength.setText(R.string.level_middle);
-                    tvStrength.setTextColor(Color.MAGENTA);
-                } else if (i <= -80) {
-                    tvStrength.setText(R.string.level_low);
-                    tvStrength.setTextColor(Color.RED);
-                }
-            } catch (NumberFormatException e) {
-                Log.d(TAG, e.getMessage());
-            }
-
-            return item;
-
-        }
-    }
 }
